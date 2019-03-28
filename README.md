@@ -131,7 +131,7 @@ If a newer version is available, you can update your sandbox automatically using
 $ vagrant box update
 ```
 
-## Docker sandbox
+## Docker Sandbox
 You can also instantiate a YDK-Py sandbox on your computer using Docker.  The sandbox will provide an Ubuntu container with YDK-Py pre-installed.  Make sure you [get Docker](https://docs.docker.com/install/) first.
 
 You can run the Docker container and connect to it using:
@@ -139,7 +139,7 @@ You can run the Docker container and connect to it using:
 $ docker run -it ydkdev/ydk-py
 ```
 
-Note that no directoreis are shared between your host and the container by default.
+Note that no directories are shared between your host and the container by default.
 
 ## Documentation and Support
-Read the [SDK documentation](http://ydk.cisco.com/py/docs/) for details on how to use the API and specific models.  For support, join the [YDK community](https://communities.cisco.com/community/developer/ydk) to connect with other users and with the makers of YDK
+Read the [SDK documentation](http://ydk.cisco.com/py/docs/) for details on how to use the API and specific models.  For support, join the [YDK community](https://communities.cisco.com/community/developer/ydk) to connect with other users and with the makers of YDK.
