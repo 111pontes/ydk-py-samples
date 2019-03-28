@@ -1,6 +1,6 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #
-# Copyright 2016 Cisco Systems, Inc.
+# Copyright 2019 Cisco Systems, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,17 +14,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-# hello-ydk.py
 # Read all data for model Cisco-IOS-XR-shellutil-oper and print system
 # uptime.
 #
+# usage: hello-ydk.py
+#
 
-# import providers, services and models
+import sys
+from datetime import timedelta
+
+# model, service and provider
+from ydk.models.cisco_ios_xr import Cisco_IOS_XR_shellutil_oper
 from ydk.services import CRUDService
 from ydk.providers import NetconfServiceProvider
-from ydk.models.cisco_ios_xr import Cisco_IOS_XR_shellutil_oper \
-    as xr_shellutil_oper
-from datetime import timedelta
 
 
 if __name__ == "__main__":
@@ -32,15 +34,14 @@ if __name__ == "__main__":
 
     # create NETCONF session
     provider = NetconfServiceProvider(address="10.0.0.1",
-                                      port=830,
                                       username="admin",
-                                      password="admin",
-                                      protocol="ssh")
+                                      password="admin")
+
     # create CRUD service
     crud = CRUDService()
 
     # create system time object
-    system_time = xr_shellutil_oper.SystemTime()
+    system_time = Cisco_IOS_XR_shellutil_oper.SystemTime()
 
     # read system time from device
     system_time = crud.read(provider, system_time)
@@ -49,5 +50,5 @@ if __name__ == "__main__":
     print("System uptime is " +
           str(timedelta(seconds=system_time.uptime.uptime)))
 
-    exit()
+    sys.exit()
 # End of script
